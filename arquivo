@@ -1,0 +1,15 @@
+link do tutorial parado
+
+
+https://docs.djangoproject.com/pt-br/2.1/intro/tutorial03/
+
+feito ate:
+ Use o sistema de template
+
+Django==2.1.5
+django-bootstrap-form==3.4
+django-ckeditor==5.6.1
+django-js-asset==1.1.0
+Pillow==5.4.1
+pytz==2018.9
+

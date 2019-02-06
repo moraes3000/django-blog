@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+
+<ul>
+    {% for jogo in object_list %}
+    <li class="mb-3">
+        <a href="{% url 'CapituloJogoListView' jogo.pk %}">
+             {{jogo.nome}}
+            <!--{{jogo.descricao}}-->
+
+         </a>
+       <a href="{% url 'update-jogo' jogo.pk %}" class="btn btn-info">
+           ---Editar---
+       </a>
+          <a href="{% url 'delete-jogo' jogo.pk %}" class="btn btn-danger">
+           ---Excluir---
+       </a>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'novo-jogo' %}">novo jogo</a>
+
+
+ {% endblock %}

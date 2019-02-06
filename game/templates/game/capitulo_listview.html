@@ -1,0 +1,7 @@
+jogo{{nome}}
+
+<ul>
+    {% for capitulo in object_list %}
+    <li> <a href="{% url 'CapituloJogoDetailView' capitulo.pk %}">{{capitulo}}</a></li>
+    {% endfor %}
+</ul>
