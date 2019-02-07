@@ -1,7 +1,17 @@
 jogo{{nome}}
-
+aaaa
 <ul>
     {% for capitulo in object_list %}
-    <li> <a href="{% url 'CapituloJogoDetailView' capitulo.pk %}">{{capitulo}}</a></li>
+    <li>
+        <a href="{% url 'CapituloJogoDetailView' capitulo.pk %}">{{capitulo}}</a>
+        <a href="{% url 'update-capitulo' capitulo.pk %}" class="btn btn-info">
+
+           ---Editar---
+       </a>
+          <a href="{% url 'CapituloDelete' capitulo.pk %}" class="btn btn-danger">
+           ---Excluir---
+       </a>
+
+    </li>
     {% endfor %}
 </ul>

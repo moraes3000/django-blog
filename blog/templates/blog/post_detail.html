@@ -1,9 +1,15 @@
+{% load static %}
 <div class="post">
-    {% if post.published_date %}
+    {% if post.criado %}
         <div class="date">
-            {{ post.published_date }}
+            {{ post.criado }}
         </div>
     {% endif %}
-    <h1>{{ post.title }}</h1>
-    <p>{{ post.text|linebreaksbr }}</p>
-</div>
+    <h1>{{ post.nome }}</h1>
+    <p>{{ post.descricao|safe }}</p>
+    {% if post.imagem %}
+        <img class="" src="{{ post.imagem.url }}">
+    {% endif %}
+{{ post.id }}
+    <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">deletar</a>
+

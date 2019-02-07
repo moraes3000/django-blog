@@ -42,4 +42,7 @@ class Capitulo_jogo(models.Model):
     def generate_slug(self):
         from django.template.defaultfilters import slugify
         return slugify(self.nome)
-    
+
+
+    def get_absolute_url(self):
+        return reverse('JogoListView')

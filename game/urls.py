@@ -14,14 +14,20 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='IndexView'),
   
     #lista os jogos
+    path('novo/', views.JogoCreateView.as_view(), name='novo-jogo'),
     path('lista/', views.JogoListView.as_view(), name='JogoListView'),
-    path('novo/',views.JogoCreateView.as_view(), name='novo-jogo'),
     path('update/<int:pk>', views.JogoUpdate.as_view(), name='update-jogo'),
     path('delete/<int:pk>', views.JogoDelete.as_view(), name='delete-jogo'),
 
 #
+
+    path('novo-capitulo/', views.CapituloCreateView.as_view(), name='CapituloCreateView'),
     path('lista/<int:pk>/', views.CapituloJogoListView.as_view(), name='CapituloJogoListView'),
-    path('capitulo/<int:pk>/',views.CapituloJogoDetailView.as_view(), name='CapituloJogoDetailView')
+    path('capitulo/<int:pk>/',views.CapituloJogoDetailView.as_view(), name='CapituloJogoDetailView'),
+
+    path('capitulo-update/<int:pk>', views.CapituloUpdate.as_view(), name='update-capitulo'),
+
+    path('delete-capitulo/<int:pk>', views.CapituloDelete.as_view(), name='CapituloDelete'),
 
    
     

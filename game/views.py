@@ -9,15 +9,16 @@ class IndexView(generic.TemplateView):
     template_name = 'game/index.html'
 
 
-class JogoListView(generic.ListView):
-    model = Jogo
-    template_name = 'game/jogo_listview.html'
-
+# crud jogo
 class JogoCreateView(generic.CreateView):
     model = Jogo
     fields = ('nome','descricao')
     template_name = 'game/jogo_novo.html'
 
+
+class JogoListView(generic.ListView):
+    model = Jogo
+    template_name = 'game/jogo_listview.html'
 
 class JogoUpdate(generic.UpdateView):
     model = Jogo
@@ -34,6 +35,10 @@ class JogoDelete(generic.DeleteView):
 
 
 
+# crud capitulos
+class CapituloCreateView(generic.CreateView):
+    model = Capitulo_jogo
+    fields = ('nome', 'chave_estrangeira')
 
 
 class CapituloJogoListView(generic.ListView):
@@ -49,3 +54,12 @@ class CapituloJogoListView(generic.ListView):
 class CapituloJogoDetailView(generic.DetailView):
     model = Capitulo_jogo
     template_name = 'game/capitulo_detail.html'
+
+
+class CapituloUpdate(generic.UpdateView):
+    model = Capitulo_jogo
+    fields = ('nome', 'chave_estrangeira')
+
+class CapituloDelete(generic.DeleteView):
+    model = Capitulo_jogo
+    success_url = reverse_lazy('JogoListView')

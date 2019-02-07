@@ -67,13 +67,14 @@ h1, h2, h3, h4 {
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
-                {% for post in posts %}
+                {% for post in object_list %}
                     <div class="post">
                         <div class="date">
-                            {{ post.published_date }}
+                            {{ post.id }} - {{ post.criado }}
                         </div>
-                        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-                        <p>{{ post.text|linebreaksbr }}</p>
+                        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.nome }}</a></h1>
+{#                        <p>{{ post.descricao|linebreaksbr |safe }}</p>#}
+                    {{ post.descricao|safe }}
                     </div>
                 {% endfor %}
                 </div>
