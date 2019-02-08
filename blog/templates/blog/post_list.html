@@ -1,84 +1,26 @@
+{% extends 'core/base-blog.html' %}
 
-<style>
-h1 a {
-    color: #FCA205;
-    font-family: 'Lobster';
-}
-.page-header {
-    background-color: #ff9400;
-    margin-top: 0;
-    padding: 20px 20px 20px 40px;
-}
+{% block content %}
 
-.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: #ffffff;
-    font-size: 36pt;
-    text-decoration: none;
-}
+    <div class="row">
 
-.content {
-    margin-left: 40px;
-}
+        {% for post in object_list %}
+            <div class="card-deck col-4">
+                <div class="card">
+                    <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.nome|safe }}</h5>
+                        <p class="card-text">{{ post.descricao|safe }}</p>
+                        <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary">Leia Mais</a>
 
-h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
-}
-
-.date {
-    color: #828282;
-}
-
-.save {
-    float: right;
-}
-
-.post-form textarea, .post-form input {
-    width: 100%;
-}
-
-.top-menu, .top-menu:hover, .top-menu:visited {
-    color: #ffffff;
-    float: right;
-    font-size: 26pt;
-    margin-right: 20px;
-}
-
-.post {
-    margin-bottom: 70px;
-}
-
-.post h1 a, .post h1 a:visited {
-    color: #000000;
-}
-</style>
-<html>
-    <head>
-        <title>blog</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-       
-    </head>
-    <body>
-        <div class="page-header">
-            <h1><a href="/"> Blog</a></h1>
-        </div>
-
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                {% for post in object_list %}
-                    <div class="post">
-                        <div class="date">
-                            {{ post.id }} - {{ post.criado }}
-                        </div>
-                        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.nome }}</a></h1>
-{#                        <p>{{ post.descricao|linebreaksbr |safe }}</p>#}
-                    {{ post.descricao|safe }}
                     </div>
-                {% endfor %}
+                    <div class="card-footer">
+                        <small class="text-muted"> {{ post.criado }}</small>
+                    </div>
                 </div>
             </div>
-        </div>
-    </body>
-</html>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+

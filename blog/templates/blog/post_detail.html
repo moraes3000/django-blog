@@ -1,15 +1,20 @@
-{% load static %}
-<div class="post">
-    {% if post.criado %}
-        <div class="date">
-            {{ post.criado }}
-        </div>
-    {% endif %}
-    <h1>{{ post.nome }}</h1>
-    <p>{{ post.descricao|safe }}</p>
-    {% if post.imagem %}
-        <img class="" src="{{ post.imagem.url }}">
-    {% endif %}
-{{ post.id }}
-    <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">deletar</a>
+{% extends 'core/base-blog.html' %}
 
+
+
+{% block content %}
+    <div class="post">
+        {% if post.criado %}
+            <div class="date">
+                {{ post.criado }}
+            </div>
+        {% endif %}
+        <h1>{{ post.nome }}</h1>
+        <p>{{ post.descricao|safe }}</p>
+        {% if post.imagem %}
+            <img class="" src="{{ post.imagem.url }}">
+        {% endif %}
+        {{ post.id }}
+{#        <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">deletar</a>#}
+    </div>
+{% endblock content %}
