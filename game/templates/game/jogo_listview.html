@@ -1,8 +1,9 @@
-{% extends 'core/base-blog.html' %}
+{% extends 'core/base-admin.html' %}
 
-{% block container %}
-        <a href="{% url 'novo-jogo' %}"class="btn btn-success m-2">novo jogo</a>
-   <table class="table table-striped table-bordered">
+{% block container-admin %}
+    <h2>Lista de jogos</h2>
+    <a href="{% url 'novo-jogo' %}" class="btn btn-success m-2">novo jogo</a>
+    <table class="table table-striped table-bordered">
         <thead>
         <th>Id</th>
         <th>Nome</th>
@@ -10,23 +11,23 @@
         <th>Ação</th>
         </thead>
         {% for jogo in object_list %}
-        <tr>
-            <td>{{ jogo.id }}</td>
-            <td>{{ jogo.nome }}</td>
-            <td>{{ jogo.slug }}</td>
-            <td>
-                <a href="{% url 'CapituloJogoListView' jogo.pk %}" class="btn btn-info">
-              Vizualizar
-                </a>
-                <a href="{% url 'update-jogo' jogo.pk %}" class="btn btn-success">
-                    Editar
-                </a>
-                <a href="{% url 'delete-jogo' jogo.pk %}" class="btn btn-danger">
-                    Excluir
-                </a>
-            </td>
-        </tr>
-     {% endfor %}
+            <tr>
+                <td>{{ jogo.id }}</td>
+                <td>{{ jogo.nome }}</td>
+                <td>{{ jogo.slug }}</td>
+                <td>
+                    <a href="{% url 'CapituloJogoListView' jogo.pk %}" class="btn btn-info">
+                        Vizualizar
+                    </a>
+                    <a href="{% url 'update-jogo' jogo.pk %}" class="btn btn-success">
+                        Editar
+                    </a>
+                    <a href="{% url 'delete-jogo' jogo.pk %}" class="btn btn-danger">
+                        Excluir
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
     </table>
 
 

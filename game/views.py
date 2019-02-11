@@ -23,7 +23,7 @@ class JogoListView(generic.ListView):
 class JogoUpdate(generic.UpdateView):
     model = Jogo
     fields = ('nome', 'descricao')
-    template_name = 'blog/jogo_novo.html'
+    template_name = 'game/jogo_update.html'
 
 
 class JogoDelete(generic.DeleteView):
@@ -63,3 +63,8 @@ class CapituloUpdate(generic.UpdateView):
 class CapituloDelete(generic.DeleteView):
     model = Capitulo_jogo
     success_url = reverse_lazy('JogoListView')
+
+
+
+#admin
+

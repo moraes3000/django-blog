@@ -3,7 +3,7 @@
 
 
 {% block container-admin %}
-
+    <h2>Editar jogo: "{{ object }}"git</h2>
     <form method="POST" action="">
         {% csrf_token %}
         {{ form.media }}
