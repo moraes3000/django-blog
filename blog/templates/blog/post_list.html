@@ -1,26 +1,30 @@
 {% extends 'core/base-blog.html' %}
 
-{% block content %}
+{% block container %}
 
     <div class="row">
-
         {% for post in object_list %}
-            <div class="card-deck col-4">
-                <div class="card">
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100">
                     <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+                    <h4 class="card-header">{{ post.nome|safe }}</h4>
                     <div class="card-body">
-                        <h5 class="card-title">{{ post.nome|safe }}</h5>
-                        <p class="card-text">{{ post.descricao|safe }}</p>
-                        <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary">Leia Mais</a>
+                        {% if post.sumario %}
+                            <p class="card-text">{{ post.sumario  |safe }}</p>
+                        {% endif %}
 
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted"> {{ post.criado }}</small>
+                        <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">Saibe mais</a>
                     </div>
                 </div>
             </div>
         {% endfor %}
+
     </div>
+    <!-- /.row -->
+
+
 {% endblock %}
 
 
