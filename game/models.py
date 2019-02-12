@@ -45,4 +45,4 @@ class Capitulo_jogo(models.Model):
 
 
     def get_absolute_url(self):
-        return reverse('JogoListView')
+        return reverse('TodosCapitulosListView')

@@ -54,7 +54,7 @@ class CapituloJogoListView(generic.ListView):
 class CapituloJogoDetailView(generic.DetailView):
     model = Capitulo_jogo
     template_name = 'game/capitulo_detail.html'
-
+    success_url = reverse_lazy('TodosCapitulosListView')
 
 class CapituloUpdate(generic.UpdateView):
     model = Capitulo_jogo
@@ -62,9 +62,11 @@ class CapituloUpdate(generic.UpdateView):
 
 class CapituloDelete(generic.DeleteView):
     model = Capitulo_jogo
-    success_url = reverse_lazy('JogoListView')
+    success_url = reverse_lazy('TodosCapitulosListView')
 
 
 
+class TodosCapitulosListView(generic.ListView):
+    model = Capitulo_jogo
 #admin
 

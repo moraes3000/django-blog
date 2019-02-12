@@ -20,6 +20,7 @@ urlpatterns = [
     path('delete/<int:pk>', views.JogoDelete.as_view(), name='delete-jogo'),
 
 #
+    path('lista-todos-capitulo', views.TodosCapitulosListView.as_view(), name='TodosCapitulosListView'),
 
     path('novo-capitulo/', views.CapituloCreateView.as_view(), name='CapituloCreateView'),
     path('lista/<int:pk>/', views.CapituloJogoListView.as_view(), name='CapituloJogoListView'),
