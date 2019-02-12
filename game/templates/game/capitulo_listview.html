@@ -1,17 +1,35 @@
-jogo{{nome}}
-aaaa
-<ul>
-    {% for capitulo in object_list %}
-    <li>
-        <a href="{% url 'CapituloJogoDetailView' capitulo.pk %}">{{capitulo}}</a>
-        <a href="{% url 'update-capitulo' capitulo.pk %}" class="btn btn-info">
+{% extends 'core/base-blog.html' %}
 
-           ---Editar---
-       </a>
-          <a href="{% url 'CapituloDelete' capitulo.pk %}" class="btn btn-danger">
-           ---Excluir---
-       </a>
+{% block container %}
 
-    </li>
-    {% endfor %}
-</ul>
+
+    <h2>Lista de capitulos "jogo {{ object_list.nome }}"</h2>
+
+
+
+
+    <div class="row">
+        {% for capitulo in object_list %}
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <a href="{% url 'CapituloJogoDetailView' capitulo.pk %}">
+                        <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+                        <h4 class="card-header">{{ capitulo.nome|safe }}</h4>
+                        <div class="card-body">
+                            {% if capitulo.sumario %}
+                                <p class="card-text">{{ capitulo.sumario  |safe }}</p>
+                            {% endif %}
+
+                        </div>
+
+                    </a>
+
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+    <!-- /.row -->
+
+
+{% endblock %}
