@@ -20,6 +20,10 @@ class JogoListView(generic.ListView):
     model = Jogo
     template_name = 'game/jogo_listview.html'
 
+class AdminJogoListView(generic.ListView):
+    model = Jogo
+    template_name = 'game/admin_jogo_listview.html'
+
 class JogoUpdate(generic.UpdateView):
     model = Jogo
     fields = ('nome', 'descricao')
