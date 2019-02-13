@@ -35,6 +35,8 @@ class Post(models.Model):
         from django.template.defaultfilters import slugify
         return slugify(self.nome)
 
+
+
 @receiver(pre_save, sender=Post)
 def my_handler(sender, instance, **kwargs):
     instance.slug = instance.generate_slug()
