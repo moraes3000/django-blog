@@ -17,7 +17,7 @@ class Post(models.Model):
     sumario = models.CharField("Escreva o conteúdo no máximo 150 caracteres", max_length=150, blank=True, null=True)
     slug = models.SlugField(_("slug"), blank=True)
     descricao = RichTextField(u'Conteúdo', default='', blank=True, null=True)
-    imagem =  models.ImageField('Foto', upload_to="foto/post", default='', blank=True, null=True)
+    imagem = models.ImageField('Foto', upload_to="foto/post", default='', blank=True, null=True)
     criado = models.DateTimeField(default=timezone.now)
     # #para o ckeditor
 

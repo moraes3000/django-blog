@@ -29,7 +29,7 @@ class PostListView(ListView):
 # admin
 class PostCreateView(CreateView):
     model = Post
-    fields = ['nome','descricao', 'imagem',]
+    fields = ('nome','sumario','descricao', 'imagem', )
     # template_name = 'game/jogo_novo.html'
 
 class AdminPostView(ListView):
