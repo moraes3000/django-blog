@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'polls',
     'game',
     'core',
+    'banner',
 
     #
     'bootstrapform',
