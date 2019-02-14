@@ -12,7 +12,7 @@ class IndexView(generic.TemplateView):
 # crud jogo
 class JogoCreateView(generic.CreateView):
     model = Jogo
-    fields = ('nome','descricao')
+    fields = ('nome','imagem','descricao')
     template_name = 'game/jogo_novo.html'
 
 
@@ -26,7 +26,7 @@ class AdminJogoListView(generic.ListView):
 
 class JogoUpdate(generic.UpdateView):
     model = Jogo
-    fields = ('nome', 'descricao')
+    fields = ('nome', 'imagem', 'descricao')
     template_name = 'game/jogo_update.html'
 
 
@@ -42,7 +42,7 @@ class JogoDelete(generic.DeleteView):
 # crud capitulos
 class CapituloCreateView(generic.CreateView):
     model = Capitulo_jogo
-    fields = ('nome', 'chave_estrangeira')
+    fields = ('nome', 'descricao', 'imagem', 'iframe', 'chave_estrangeira',)
 
 
 class CapituloJogoListView(generic.ListView):
@@ -62,7 +62,7 @@ class CapituloJogoDetailView(generic.DetailView):
 
 class CapituloUpdate(generic.UpdateView):
     model = Capitulo_jogo
-    fields = ('nome', 'chave_estrangeira')
+    fields = ('nome', 'descricao', 'imagem' ,'iframe' , 'chave_estrangeira',)
 
 class CapituloDelete(generic.DeleteView):
     model = Capitulo_jogo

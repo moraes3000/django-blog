@@ -28,7 +28,7 @@ urlpatterns = [
     path('lista/<int:pk>/', views.CapituloJogoListView.as_view(), name='CapituloJogoListView'),
     path('capitulo/<int:pk>/',views.CapituloJogoDetailView.as_view(), name='CapituloJogoDetailView'),
 
-    path('capitulo-update/<int:pk>', views.CapituloUpdate.as_view(), name='update-capitulo'),
+    path('capitulo-update/<int:pk>', views.CapituloUpdate.as_view(), name='CapituloUpdate'),
 
     path('delete-capitulo/<int:pk>', views.CapituloDelete.as_view(), name='CapituloDelete'),
 

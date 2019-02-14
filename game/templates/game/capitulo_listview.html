@@ -3,7 +3,7 @@
 {% block container %}
 
 
-    <h2>Lista de capitulos "jogo {{ object_list.nome }}"</h2>
+    <h2>Lista de capitulos "jogo {{ object_list.nome }}{{ object }}"</h2>
 
 
 
@@ -13,11 +13,18 @@
             <div class="col-lg-4 mb-4">
                 <div class="card h-100">
                     <a href="{% url 'CapituloJogoDetailView' capitulo.pk %}">
-                        <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+                        {% if  capitulo.imagem %}
+                            <img class="card-img-top" src="{{ capitulo.imagem.url }}" alt="Card image cap">
+                        {% else %}
+                            <img class="card-img-top" src="http://placehold.it/750x300"
+                                 alt="Card image cap">
+                        {% endif %}
                         <h4 class="card-header">{{ capitulo.nome|safe }}</h4>
                         <div class="card-body">
-                            {% if capitulo.sumario %}
-                                <p class="card-text">{{ capitulo.sumario  |safe }}</p>
+                            {% if post.sumario %}
+                                {{ capitulo.sumario }}
+                            {% else %}
+                                {{ capitulo.descricao  |safe |truncatewords:10 }}
                             {% endif %}
 
                         </div>
