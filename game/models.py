@@ -18,7 +18,8 @@ class Jogo(models.Model):
     imagem = models.ImageField('Foto', upload_to="foto/post", default='', blank=True, null=True)
     criado = models.DateTimeField(default=timezone.now)
 
-
+    class Meta:
+        ordering = ['nome']
 
     def publish(self):
         self.criado = timezone.now()
@@ -50,7 +51,10 @@ class Capitulo_jogo(models.Model):
     chave_estrangeira = models.ForeignKey("Jogo", verbose_name=_("jogo"), on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nome    
+        return self.nome
+
+    class Meta:
+        ordering = ['nome']
 
     def generate_slug(self):
         from django.template.defaultfilters import slugify
