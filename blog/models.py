@@ -21,6 +21,9 @@ class Post(models.Model):
     criado = models.DateTimeField(default=timezone.now)
     # #para o ckeditor
 
+    class Meta:
+        ordering = ['-criado']
+
     def publish(self):
         self.criado = timezone.now()
         self.save()

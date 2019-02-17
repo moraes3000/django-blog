@@ -22,7 +22,7 @@ class PostListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['object_list'] = Post.objects.all().order_by('-criado')
+        context['object_list'] = Post.objects.all()
         return context
 
 

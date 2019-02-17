@@ -35,6 +35,6 @@ class FotorDelete(DeleteView):
     model = FotoBanner
     success_url = reverse_lazy('FotoBannerListView')
 
-class FotoUpdate(CreateView):
+class FotoUpdate(UpdateView):
     model = FotoBanner
     fields = ['nome', 'imagem','bannery','url','posicao','mostrartitulobanner']
